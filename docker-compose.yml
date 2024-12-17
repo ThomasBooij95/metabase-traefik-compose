@@ -24,7 +24,7 @@ services:
     networks:
       - metanet1
     depends_on:
-      - ba_mb_postgres
+      - postgres
     secrets:
       - db_password
       - db_user
