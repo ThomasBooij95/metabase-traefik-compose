@@ -1,8 +1,8 @@
 services:
 
-  ba_metabase:
+  metabase:
     image: metabase/metabase:v0.52.3
-    container_name: metabase
+    container_name: ba_metabase
     hostname: metabase
     volumes:
       - /dev/urandom:/dev/random:ro
@@ -24,14 +24,14 @@ services:
     networks:
       - metanet1
     depends_on:
-      - postgres
+      - ba_mb_postgres
     secrets:
       - db_password
       - db_user
       - mb_key
     restart: always
 
-  ba_mb_postgres:
+  postgres:
     image: postgres:15.8
     container_name: postgres
     hostname: postgres
@@ -48,7 +48,7 @@ services:
       - db_user
     restart: always
 
-  mb_traefik:
+  traefik:
     image: traefik:v3.2.0
     container_name: traefik
     command:
