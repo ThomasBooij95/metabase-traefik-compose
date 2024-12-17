@@ -1,6 +1,6 @@
 services:
 
-  metabase:
+  ba_metabase:
     image: metabase/metabase:v0.52.3
     container_name: metabase
     hostname: metabase
@@ -31,7 +31,7 @@ services:
       - mb_key
     restart: always
 
-  postgres:
+  ba_mb_postgres:
     image: postgres:15.8
     container_name: postgres
     hostname: postgres
@@ -48,7 +48,7 @@ services:
       - db_user
     restart: always
 
-  traefik:
+  mb_traefik:
     image: traefik:v3.2.0
     container_name: traefik
     command:
