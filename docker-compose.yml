@@ -18,7 +18,7 @@ services:
       MB_ENCRYPTION_SECRET_KEY: /run/secrets/mb_key
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.metabasereports.rule=Host(`${MB_HOST}`)"
+      - "traefik.http.routers.metabasereports.rule=Host('${MB_HOST}') && PathPrefix('${MB_POLAR_PREFIX}')"
       - "traefik.http.routers.metabasereports.entrypoints=websecure"
       - "traefik.http.routers.metabasereports.tls.certresolver=myresolver"
     networks:
