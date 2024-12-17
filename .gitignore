@@ -1,0 +1,5 @@
+.env
+.env.example
+db_password.txt
+db_user.txt
+mb_key.txt
