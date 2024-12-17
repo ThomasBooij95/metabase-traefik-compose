@@ -1,7 +1,7 @@
 services:
 
   metabase:
-    image: metabase/metabase:v0.51.2
+    image: metabase/metabase:v0.52.3
     container_name: metabase
     hostname: metabase
     volumes:
@@ -17,10 +17,10 @@ services:
       MB_DB_HOST: postgres
       MB_ENCRYPTION_SECRET_KEY: /run/secrets/mb_key
     labels:
-        - "traefik.enable=true"
-        - "traefik.http.routers.metabasereports.rule=Host(`${MB_HOST}`)"
-        - "traefik.http.routers.metabasereports.entrypoints=websecure"
-        - "traefik.http.routers.metabasereports.tls.certresolver=myresolver"
+      - "traefik.enable=true"
+      - "traefik.http.routers.metabasereports.rule=Host(`${MB_HOST}`)"
+      - "traefik.http.routers.metabasereports.entrypoints=websecure"
+      - "traefik.http.routers.metabasereports.tls.certresolver=myresolver"
     networks:
       - metanet1
     depends_on:
@@ -77,9 +77,9 @@ networks:
     driver: bridge
 
 secrets:
-   db_password:
-     file: db_password.txt
-   db_user:
-     file: db_user.txt
-   mb_key:
-     file: mb_key.txt
+  db_password:
+    file: db_password.txt
+  db_user:
+    file: db_user.txt
+  mb_key:
+    file: mb_key.txt
