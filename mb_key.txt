@@ -1,5 +1,0 @@
-This file should be in the same directory as the docker-compose.yml.
-
-Delete the entire content of this file and replace with an encryption key.
-
-See: https://www.metabase.com/docs/latest/databases/encrypting-details-at-rest
